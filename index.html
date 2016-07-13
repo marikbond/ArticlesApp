@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap task</title>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">Project Name</div> 
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-hover">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li class="dropdown-toggle" data="toggle" role="button" aria-haspopup="true" aria-expanded="false"> 
+                        <a href="# ">More <span class="glyphicon glyphicon-chevron-down"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Button</a></li>
+                            <li><a href="#">Second Butt</a></li>
+                            <li><a href="#">Click it</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Live now</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#modal-2">Sign Up</button>
+                <div class="modal fade" id="modal-2" class="z-index-modal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <p>Sign Up</p>
+                            </div>
+                            <div class="modal-body">
+                                
+                            </div>
+                            <div class="modal-footer">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Sign In</a></li>
+                </ul>
+            </div>   
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modal-1">New Article <span class="glyphicon glyphicon-menu-right"></span></button>
+            <div class="modal fade" id="modal-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" type="button" data-dismiss="modal">&times;</button>
+                            <p>New Article</p>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="article-title">Article Title</label>
+                                    <input type="text" class="form-control" id="article-title" placeholder="Title">
+                                </div>
+                                <div class="form-group">
+                                    <label for="article-text">Atricle Text</label>
+                                    <textarea id="article-text" class="form-control" cols="30" rows="5" placeholder="text"></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mymodal"><span class="glyphicon glyphicon-th-large"></span></button>
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mymodal"><span class="glyphicon glyphicon-th"></span></button>
+        </div>
+    </div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="resources/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
