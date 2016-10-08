@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap task</title>
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="#" class="navbar-brand">Project name</a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+                <ul class="nav navbar-nav navbar-hover">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contacts</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-hover">
+                    <li class="active"><a href="#" data-toggle="modal" data-target="#modal-signin">Sign In</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#modal-signup">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="header"></header>
+    
+    <main>
+        <div class="container">
+            <form class="form-horizontal">
+                <h2 class="col-sm-offset-3 col-sm-9">Sign Up</h2>
+                <div class="form-group">
+                    <label for="first-name" class="col-sm-3 control-label">First Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="first-name" placeholder="James">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="last-name" class="col-sm-3 control-label">Last name</label>
+                    <div class="col-sm-9">
+                    <input type="text" class="form-control" id="last-name" placeholder="Smith">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="email" placeholder="example@gmail.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="col-sm-3 control-label">Username</label>
+                    <div class="col-sm-9">
+                        <input type="text" id="username" class="form-control" placeholder="Username">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-3 control-label">Password</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password-again" class="col-sm-3 control-label">Confirm password</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="password-again" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <div class="checkbox">
+                            <button type="submit" class="btn btn-success">Sign Up</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- common libs -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
+    <!-- common libs -->
+
+</body>
+</html>

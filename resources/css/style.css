@@ -1,0 +1,41 @@
+body {
+    font-family: "Raleway", sans-serif;
+}
+
+.jumbotron {
+   margin-bottom: 0;   
+}
+
+.header {
+    padding-top: 50px;
+    padding-bottom: 15px;
+}
+
+.article {
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+.clearfix {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.article main {
+    height: 150px;
+}
+
+.article footer {
+    padding-top: 10px;
+    border-top: 1px solid #ddd;
+}
+
+.view-btn {
+    margin-top: 3px;
+}
+
+.navbar-hover li:hover {
+    background-color: #e7e7e7;
+}
