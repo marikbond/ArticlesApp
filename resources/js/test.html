@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+
+
+
+        /**
+         *  Все переменные внутри функции – это свойства специального внутреннего объекта LexicalEnvironment, который создаётся при её запуске.
+         *
+         *  Интерпретатор, при доступе к переменной, сначала пытается
+         *  найти переменную в текущем LexicalEnvironment, а затем,
+         *  если её нет – ищет во внешнем объекте переменных.
+         *  В данном случае им является window.
+         *
+         */
+
+// [[ Scope ]] внутренней функции, в отличии от внешней, получить невозможно
+
+        function makeCounter() {
+            // makeCounter = {
+            //    [[ Scope ]] -> window
+            //    LexicalEnvironment = { currentCount: undefined }
+            //}
+            var currentCount = 1;
+            // makeCounter = {
+            //    [[ Scope ]] -> window
+            //    LexicalEnvironment = { currentCount: 1 }
+            //}
+            return function() {
+                // f = {
+                //    [[ Scope ]] -> makeCounter.LexicalEnvironment
+                //    LexicalEnvironment: {}
+                //}
+                return currentCount++;
+            };
+        }
+
+        var counter = makeCounter();
+
+        // каждый вызов увеличивает счётчик и возвращает результат
+        console.log( counter() ); // 1
+        console.log( counter() ); // 2
+        console.log( counter() ); // 3
+
+        // создать другой счётчик, он будет независим от первого
+        var counter2 = makeCounter();
+        console.log( counter2() ); // 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//        // window = { scope: undefined, a: [...]}
+//        var a = [3, 34, 203, 746, 200, 984, 198, 764, 9];
+//
+//        var bubbleSort = function() {
+//            // le_bs = { scope: window, res: 99 };
+//            var res = 99;
+//            res += 1;
+//            console.log(res);
+//
+//            return function () {
+//                // le_rf = { scope: le_bs }
+//                res += 1;
+//                console.log(res);
+//
+//                function vv(fff) {
+//                    // le_vv = { scope: le_rf, test: 55, fff: 62 }
+//                    var test;
+//                    test = 55;
+//                    fff = 62;
+//                    return res;
+//                }
+//            }
+//        };
+//
+//        var f = bubbleSort();
+//        bubbleSort = 'hello';
+//        f();
+//        f();
+//        f();
+//        f();
+//        f();
+//        f();
+
+
+        //bubbleSort();
+        //bubbleSort();
+        //bubbleSort();
+    </script>
+</body>
+</html>

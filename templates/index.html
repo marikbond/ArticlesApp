@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Bootstrap task</title>
     <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="../resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../resources/css/style.css">
 </head>
 <body>
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -21,12 +21,10 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav navbar-hover">
                     <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contacts</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right navbar-hover">
-                    <li><a href="#" data-toggle="modal" data-target="#modal-signin">Sign In</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#modal-signup">Sign Up</a></li>
+                    <li><a href="signIn.html">Sign In</a></li>
+                    <li><a href="signUp.html">Sign Up</a></li>
                 </ul>
             </div>
         </div>
@@ -49,27 +47,28 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveArticle()">Save</button>
                 </div>
             </div>
         </div>
     </div>
+
     <header class="header">
         <div class="jumbotron">
             <div class="container">
                 <h1>Article</h1>
                 <p>
-                This is a simple hero unit, a simple jumbotron-style component for <br>
-                calling extra attention to featured content or information.
+                    This is a simple hero unit, a simple jumbotron-style component for <br>
+                    calling extra attention to featured content or information.
                 </p>
                 <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#view-article-modal">
                     New Arcticle 
                     <span class="glyphicon glyphicon-menu-right"></span>
                 </a>
-                <a href="#" class="btn btn-primary btn-lg">
+                <a href="#" class="btn btn-primary btn-lg" onclick="setColCountInOneRow(2)">
                     <span class="glyphicon glyphicon-th-large"></span>
                 </a>
-                <a href="#" class="btn btn-primary btn-lg">
+                <a href="#" class="btn btn-primary btn-lg" onclick="setColCountInOneRow(3)">
                     <span class="glyphicon glyphicon-th"></span>
                 </a>
             </div>
@@ -77,40 +76,20 @@
     </header>
     <main>
         <div class="container">
-            <div id="article-container">
-                <div class="row">
-                    <div class="col-md-6">
-                       <article class="article">
-                           <header>
-                               <span>Creation date: </span>
-                               <time datetime="01-03-2016">01-03-2016</time>
-                               <div class="article-controls pull-right">
-                                   <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                                   <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-                               </div>
-                           </header>
-                           <main>
-                               <h2>Title</h2>
-                               <p>Content</p>
-                           </main>
-                           <footer class="clearfix">
-                               <div class="pull-left">
-                                   <span class="glyphicon glyphicon-user"></span>
-                                   Author: <br> Mark Bondarenko
-                               </div>
-                               <button class="btn btn-default pull-right view-btn" type="button">View Details >></button>
-                           </footer>
-                       </article>
-                    </div>
-                </div>
-            </div>
+            <div id="article-container"></div>
         </div>
     </main>
 
     <!-- common libs -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="resources/bootstrap/js/bootstrap.min.js"></script>
-    <!-- common libs -->
-
+    <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/js/utils.js"></script>
+    <script type="text/javascript" src="../models/db.js"></script>
+    <!-- end common libs -->
+    <script type="text/javascript" src="../controllers/articleController.js"></script>
+    <script type="text/javascript" src="../models/articleModel.js"></script>
+    <script type="text/javascript" src="../views/articleView.js"></script>
+    <script type="text/javascript" src="../views/gridView.js"></script>
+    <script type="text/javascript" src="../resources/js/app.js"></script>
 </body>
 </html>

@@ -23,6 +23,10 @@ body {
     clear: both;
 }
 
+.overflow {
+    overflow: auto;
+}
+
 .article main {
     height: 150px;
 }
