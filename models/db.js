@@ -1,4 +1,5 @@
 var db = (function () {
+
     var sequence = {
         nextValue: function (sequenceName) {
             var value = +localStorage.getItem(sequenceName);

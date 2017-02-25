@@ -1,16 +1,17 @@
-(function () {
-    function saveArticle() {
-        var title = document.getElementById("article-title").value;
-        var content = document.getElementById('article-content').value;
-        var article = {
-            title: title,
-            content: content,
-            creationDate: new Date(),
-            author: ""
-        };
-        saveArticleToStorage(article);
-        addArticleToView(article);
-    }
+var articleCtrl = (function () {
 
-    window.saveArticles = saveArticle();
+    return {
+        saveArticle: function () {
+            var title = document.getElementById("article-title").value;
+            var content = document.getElementById('article-content').value;
+            var articleParams = {
+                title: title,
+                content: content,
+                creationDate: new Date(),
+                author: ""
+            };
+            var article = articleModel.save(articleParams);
+            articleView.render(article);
+        }
+    };
 })();
