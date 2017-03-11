@@ -47,7 +47,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="saveArticle()">Save</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="articleCtrl.saveArticle()">Save</button>
                 </div>
             </div>
         </div>
@@ -81,6 +81,7 @@
     </main>
 
     <!-- common libs -->
+    <script src="../resources/js/lodash.js"></script>
     <script src="../resources/js/jquery.js"></script>
     <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/js/utils.js"></script>
@@ -90,6 +91,32 @@
     <script type="text/javascript" src="../models/articleModel.js"></script>
     <script type="text/javascript" src="../views/articleView.js"></script>
     <script type="text/javascript" src="../views/gridView.js"></script>
-    <script type="text/javascript" src="../resources/js/app.js"></script>
+    <script type="text/javascript" src="../app.js"></script>
+
+
+    <!-- TEMPLATES -->
+    <script id="articleTemplate" type="text/x-lodash-template">
+        <article id="<%= article.id %>" class="article">
+            <header>
+                <span>Creation date: </span>
+                <time><%= creationDate %></time>
+                <div class="article-controls pull-right">
+                    <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                </div>
+            </header>
+            <main>
+                <h2><%= title %></h2>
+                <p><%= content %></p>
+            </main>
+            <footer class="clearfix">
+                <div class="pull-left">
+                    <span class="glyphicon glyphicon-user overflow"></span>
+                    Author: <br> <%= authorFullName %>
+                </div>
+                <button class="btn btn-default pull-right view-btn overflow" type="button">View Details >></button>
+            </footer>
+        </article>
+    </script>
 </body>
 </html>

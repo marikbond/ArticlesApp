@@ -7,8 +7,7 @@ var articleCtrl = (function () {
             var articleParams = {
                 title: title,
                 content: content,
-                creationDate: new Date(),
-                author: ""
+                creationDate: new Date()
             };
             var article = articleModel.save(articleParams);
             articleView.render(article);

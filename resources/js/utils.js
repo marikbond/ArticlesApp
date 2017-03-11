@@ -1,6 +1,6 @@
 var cache = {};
 
-function _(id) {
+function getElementById(id) {
     if (cache[id]) {
         return cache[id];
     }
