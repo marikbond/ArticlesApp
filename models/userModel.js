@@ -1,24 +1,26 @@
 var userModel = (function () {
-    function getFullName() {
-        var fullName = user.name + ' ' + user.lastName;
-        return fullName;
-    }
+        // function getFullName() {
+        //     var fullName = user.id436.name + ' ' + user.id436.lastName;
+        //     console.log(fullName);
+        //     return fullName;
+        // },
         var user = {
             'id436': {
-                'name': 'Alexey',
+                'firstName': 'Alexey',
                 'lastName': 'Popov',
-                'fullName': getFullName(),
-                'id': 412,
-                'age': 24
-            }
-        };
+                'fullName': function () {
+                    return this.firstName + ' ' + this.lastName;
+                },
+                'id': '436'
+                }
+            };
     return {
             save: function () {
+                //TODO
             },
             getLoggedIn: function () {
-                return user.id436
+                return user.id436.fullName()
             }
-
         }
     }
 )();

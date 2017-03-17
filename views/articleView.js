@@ -25,7 +25,7 @@ var articleView = (function () {
             articleRow.appendChild(col);
             var articleTemplate = document.getElementById('articleTemplate').innerHTML;
             var compiledArticleTemplate = _.template(articleTemplate); //TODO
-            col.innerHTML = compiledArticleTemplate({ article: article });
+            col.innerHTML = compiledArticleTemplate(article);
         }
     }
 })();
