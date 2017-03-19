@@ -1,25 +1,31 @@
-var userModel = (function () {
-        // function getFullName() {
-        //     var fullName = user.id436.name + ' ' + user.id436.lastName;
-        //     console.log(fullName);
-        //     return fullName;
-        // },
-        var user = {
-            'id436': {
-                'firstName': 'Alexey',
-                'lastName': 'Popov',
-                'fullName': function () {
-                    return this.firstName + ' ' + this.lastName;
-                },
-                'id': '436'
-                }
-            };
+var User = (function () {
+
+    var _modelParams_ = {
+        model: 'Users',
+        storage_key: 'users',
+        sequence: 'user_sequence',
+        associations: []
+    };
+
     return {
-            save: function () {
+            create: function () {
+                //TODO реальзовать функцию
+            },
+            find: function (userId) {
                 //TODO
             },
             getLoggedIn: function () {
-                return user.id436.fullName()
+                //TODO реализовать получение зарегистрированного пользователя
+                //данное значение выступает в качестве mock
+                return {
+                    id: '436',
+                    firstName: 'Alexey',
+                    lastName: 'Popov',
+                    getFullName: function () {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    model: User
+                }
             }
         }
     }

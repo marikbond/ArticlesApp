@@ -10,7 +10,7 @@ var articleCtrl = (function () {
                 creationDate: new Date(),
                 authorFullName: 'Lyosha Popov'
             };
-            var article = articleModel.save(articleParams);
+            var article = Article.create(articleParams);
             articleView.render(article);
         }
     };

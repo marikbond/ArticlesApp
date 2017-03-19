@@ -6,3 +6,5 @@ try {
 } catch (error) {
     articles = {};
 }
+
+var article = Article.find(33);

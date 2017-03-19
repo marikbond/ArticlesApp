@@ -37,8 +37,9 @@ var db = (function () {
             }
             localStorage.setItem(key, JSON.stringify(valueForSave));
         },
-        get: function (key) {
-            return JSON.parse(localStorage.getItem(key));
+        get: function (key, id) {
+            var allItems = JSON.parse(localStorage.getItem(key));
+            return id ? allItems[id] : allItems;
         }
     };
 })();
