@@ -4,9 +4,7 @@ var Article = (function () {
         model: 'Article',
         storage_key: 'articles',
         sequence: 'article_sequence',
-        associations: [
-            {model: User, as: 'author'}
-        ]
+        associations: [{model: User, as: 'author'}]
     };
 
     return {
@@ -24,6 +22,7 @@ var Article = (function () {
         },
         find: function (articleId) {
             var article = db.get('articles', articleId);
+            console.log(article);
             /*
                 перебрать все поля article и проверить
                 и получить данные для всех ассоциативных полей.

@@ -7,4 +7,5 @@ try {
     articles = {};
 }
 
-var article = Article.find(33);
+var article = Article.find();
+console.log(article);
