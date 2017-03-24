@@ -12,7 +12,17 @@ var User = (function () {
                 //TODO реальзовать функцию
             },
             find: function (userId) {
-                //TODO
+                //TODO реализовать функцию поиска нужного юзера
+                //данное значение выступает в качестве mock
+                return {
+                    id: '436',
+                    firstName: 'Alexey',
+                    lastName: 'Popov',
+                    getFullName: function () {
+                        return this.firstName + ' ' + this.lastName;
+                    },
+                    model: User
+                };
             },
             getLoggedIn: function () {
                 //TODO реализовать получение зарегистрированного пользователя
