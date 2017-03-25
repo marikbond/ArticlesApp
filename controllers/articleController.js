@@ -4,13 +4,11 @@ var articleCtrl = (function () {
         saveArticle: function () {
             var title = document.getElementById("article-title").value;
             var content = document.getElementById('article-content').value;
-            var articleParams = {
+            var article = Article.create({
                 title: title,
                 content: content,
-                creationDate: new Date(),
-                authorFullName: 'Lyosha Popov'
-            };
-            var article = Article.create(articleParams);
+                creationDate: new Date()
+            });
             articleView.render(article);
         }
     };

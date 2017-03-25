@@ -26,6 +26,9 @@ var articleView = (function () {
             var articleTemplate = document.getElementById('articleTemplate').innerHTML;
             var compiledArticleTemplate = _.template(articleTemplate); //TODO
             col.innerHTML = compiledArticleTemplate(article);
+        },
+        renderAll: function () {
+            //...
         }
     }
 })();

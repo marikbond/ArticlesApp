@@ -7,6 +7,15 @@ var User = (function () {
         associations: []
     };
 
+    var loggedInUserMock = {
+        id: '436',
+        firstName: 'Alexey',
+        lastName: 'Popov',
+        getFullName: function () {
+            return this.firstName + ' ' + this.lastName;
+        }
+    };
+
     return {
             create: function () {
                 //TODO реальзовать функцию
@@ -14,28 +23,12 @@ var User = (function () {
             find: function (userId) {
                 //TODO реализовать функцию поиска нужного юзера
                 //данное значение выступает в качестве mock
-                return {
-                    id: '436',
-                    firstName: 'Alexey',
-                    lastName: 'Popov',
-                    getFullName: function () {
-                        return this.firstName + ' ' + this.lastName;
-                    },
-                    model: User
-                };
+                return loggedInUserMock;
             },
             getLoggedIn: function () {
                 //TODO реализовать получение зарегистрированного пользователя
                 //данное значение выступает в качестве mock
-                return {
-                    id: '436',
-                    firstName: 'Alexey',
-                    lastName: 'Popov',
-                    getFullName: function () {
-                        return this.firstName + ' ' + this.lastName;
-                    },
-                    model: User
-                }
+                return loggedInUserMock;
             }
         }
     }

@@ -8,15 +8,17 @@ var db = (function () {
         }
     };
 
-    function normalizeItemToSave(item) {
+    function getObjectForSave(item) {
+        var objectForSave = {};
         for (var key in item) {
             if (!item.hasOwnProperty(key)) continue;
             var value = item[key];
             if (isObject(value)) {
-               item[key] = value.id;
+               value = value.id;
             }
+            objectForSave[key] = value;
         }
-        return item;
+        return objectForSave;
     }
 
     function isObject(value) {
@@ -32,7 +34,7 @@ var db = (function () {
             if (isObject(value)) {
                 value.id = db.generateId(value.sequanceName);
                 var items = this.get(key);
-                items[value.id] = normalizeItemToSave(value);
+                items[value.id] = getObjectForSave(value);
                 valueForSave = items;
             }
             localStorage.setItem(key, JSON.stringify(valueForSave));

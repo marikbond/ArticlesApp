@@ -100,7 +100,7 @@
         <article id="<%= id %>" class="article">
             <header>
                 <span>Creation date: </span>
-                <time><%= creationDate %></time>
+                <time><%= getCreationDate() %></time>
                 <div class="article-controls pull-right">
                     <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
@@ -113,7 +113,7 @@
             <footer class="clearfix">
                 <div class="pull-left">
                     <span class="glyphicon glyphicon-user overflow"></span>
-                    Author: <br> <%= authorFullName %>
+                    Author: <br> <%= author.getFullName() %>
                 </div>
                 <button class="btn btn-default pull-right view-btn overflow" type="button">View Details >></button>
             </footer>

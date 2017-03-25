@@ -4,31 +4,45 @@ var Article = (function () {
         model: 'Article',
         storage_key: 'articles',
         sequence: 'article_sequence',
-        associations: [{model: User, as: 'author'}]
+        associations: [
+            {model: User, as: 'author'},
+        ]
     };
+
+    function fillInstanceMethods(article) {
+        article.getCreationDate = function () {
+            //this.creationDate
+            //day-month-year
+            return '21-03-2017';
+        }
+    }
 
     return {
         getModel: function () {
             return _modelParams_.model;
         },
         getStorageKey: function () {
-            return ''; //TODO
+            return _modelParams_.storage_key;
         },
         create: function (article) {
+            var storageKey = this.getStorageKey();
             article.author = User.getLoggedIn();
-            article.model = Article;
-            db.create('articles', article);
+            db.create(storageKey, article);
+            fillInstanceMethods(article);
             return article;
         },
         find: function (articleId) {
-            var article = db.get('articles', articleId);
+            var storageKey = this.getStorageKey();
+            var article = db.get(storageKey, articleId);
             article.author = User.find(article.author);
             return article;
+        },
+        findAll: function() {
+            //...
+            return {};
         }
     }
 })();
-
-
 
 // {
 //     id: 33,
