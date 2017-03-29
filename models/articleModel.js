@@ -5,7 +5,7 @@ var Article = (function () {
         storage_key: 'articles',
         sequence: 'article_sequence',
         associations: [
-            {model: User, as: 'author'},
+            {model: User, as: 'author'}
         ]
     };
 
@@ -15,6 +15,16 @@ var Article = (function () {
             //day-month-year
             return '21-03-2017';
         }
+    }
+
+    function prepareArticlesToRender(articles) {
+        var articlesInArr = [];
+        var i = 0;
+        for (var key in articles) {
+            articles[key].author = User.getLoggedIn(); //TODO переделать под автора созания статьи
+            articlesInArr[i++] = articles[key];
+        }
+        return articlesInArr;
     }
 
     return {
@@ -38,8 +48,9 @@ var Article = (function () {
             return article;
         },
         findAll: function() {
-            //...
-            return {};
+            var allArticlesInJSON = localStorage.getItem('articles');
+            var parsedArticles = JSON.parse(allArticlesInJSON);
+            return prepareArticlesToRender(parsedArticles);
         }
     }
 })();

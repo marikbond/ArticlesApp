@@ -27,8 +27,12 @@ var articleView = (function () {
             var compiledArticleTemplate = _.template(articleTemplate); //TODO
             col.innerHTML = compiledArticleTemplate(article);
         },
-        renderAll: function () {
-            //...
+        renderAll: function (articles) {
+            console.log(articles.length);
+            for (var i = 0; i < articles.length; i++) {
+                console.log(articles[i]);
+                articleView.render(articles[i]);
+            }
         }
     }
 })();
