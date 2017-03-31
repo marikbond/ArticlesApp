@@ -28,9 +28,7 @@ var articleView = (function () {
             col.innerHTML = compiledArticleTemplate(article);
         },
         renderAll: function (articles) {
-            console.log(articles.length);
             for (var i = 0; i < articles.length; i++) {
-                console.log(articles[i]);
                 articleView.render(articles[i]);
             }
         }

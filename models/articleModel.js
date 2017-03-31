@@ -8,21 +8,29 @@ var Article = (function () {
             {model: User, as: 'author'}
         ]
     };
-
-    function fillInstanceMethods(article) {
-        article.getCreationDate = function () {
-            //this.creationDate
-            //day-month-year
-            return '21-03-2017';
+    
+    function fillRelatedData(article) {
+        if (typeof article.author !== 'object') {
+            article.author = User.find();
         }
+        article.getCreationDate = function () {
+            // var date = new Date();
+            // date.getHours();
+            //day-month-year
+            return '06-07-89';
+        };
+        if (article.creationDate !== 'undefined') {
+            article.creationDate = article.getCreationDate();
+        }
+
+        return article;
     }
 
-    function prepareArticlesToRender(articles) {
+    function getPreparedInstance(articles) {
         var articlesInArr = [];
         var i = 0;
         for (var key in articles) {
-            articles[key].author = User.getLoggedIn(); //TODO переделать под автора созания статьи
-            articlesInArr[i++] = articles[key];
+            articlesInArr[i++] = fillRelatedData(articles[key]);
         }
         return articlesInArr;
     }
@@ -38,7 +46,7 @@ var Article = (function () {
             var storageKey = this.getStorageKey();
             article.author = User.getLoggedIn();
             db.create(storageKey, article);
-            fillInstanceMethods(article);
+            fillRelatedData(article);
             return article;
         },
         find: function (articleId) {
@@ -48,9 +56,8 @@ var Article = (function () {
             return article;
         },
         findAll: function() {
-            var allArticlesInJSON = localStorage.getItem('articles');
-            var parsedArticles = JSON.parse(allArticlesInJSON);
-            return prepareArticlesToRender(parsedArticles);
+            var allItems = db.get('articles');
+            return getPreparedInstance(allItems);
         }
     }
 })();
