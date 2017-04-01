@@ -28,8 +28,9 @@ var articleView = (function () {
             col.innerHTML = compiledArticleTemplate(article);
         },
         renderAll: function (articles) {
-            for (var i = 0; i < articles.length; i++) {
-                articleView.render(articles[i]);
+            for (var key in articles) {
+                if (!articles.hasOwnProperty(key)) continue;
+                this.render(articles[key]);
             }
         }
     }

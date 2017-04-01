@@ -20,7 +20,7 @@ var User = (function () {
             create: function () {
                 //TODO реальзовать функцию
             },
-            find: function (userId) {
+            findOne: function (userId) {
                 //TODO реализовать функцию поиска нужного юзера
                 //данное значение выступает в качестве mock
                 return loggedInUserMock;

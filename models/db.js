@@ -25,23 +25,26 @@ var db = (function () {
         return value && value.constructor === Object;
     }
 
+    function generateId(sequence_name) {
+        return sequence.nextValue(sequence_name);
+    }
+
     return {
-        generateId: function (sequence_name) {
-            return sequence.nextValue(sequence_name);
-        },
-        create: function (key, value) {
+        save: function (key, sequence, value) {
             var valueForSave = value;
             if (isObject(value)) {
-                value.id = db.generateId(value.sequanceName);
+                value.id = generateId(sequence);
                 var items = this.get(key);
                 items[value.id] = getObjectForSave(value);
                 valueForSave = items;
             }
             localStorage.setItem(key, JSON.stringify(valueForSave));
         },
-        get: function (key, id) {
-            var allItems = JSON.parse(localStorage.getItem(key));
-            return id ? allItems[id] : allItems;
+        getAll: function (key) {
+            return JSON.parse(localStorage.getItem(key));
+        },
+        getOne: function (key, id) {
+            return this.getAll(key)[id];
         }
     };
 })();

@@ -79,12 +79,13 @@
             <div id="article-container"></div>
         </div>
     </main>
+
     <!-- TEMPLATES -->
     <script id="articleTemplate" type="text/x-lodash-template">
         <article id="<%= id %>" class="article">
             <header>
                 <span>Creation date: </span>
-                <time><%= getCreationDate() %></time>
+                <time><%= creationDate.format("UTC:dd-MM-yyyy") %></time>
                 <div class="article-controls pull-right">
                     <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
                     <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
@@ -107,6 +108,7 @@
     <!-- common libs -->
     <script src="../resources/js/lodash.js"></script>
     <script src="../resources/js/jquery.js"></script>
+    <script src="../resources/libs/dateFormat.js"></script>
     <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../resources/js/utils.js"></script>
     <script type="text/javascript" src="../models/db.js"></script>

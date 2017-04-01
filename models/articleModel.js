@@ -9,30 +9,17 @@ var Article = (function () {
         ]
     };
     
-    function fillRelatedData(article) {
+    function fillAssociations(article) {
         if (typeof article.author !== 'object') {
-            article.author = User.find();
+            article.author = User.findOne(article.author);
         }
-        article.getCreationDate = function () {
-            // var date = new Date();
-            // date.getHours();
-            //day-month-year
-            return '06-07-89';
-        };
-        if (article.creationDate !== 'undefined') {
-            article.creationDate = article.getCreationDate();
-        }
-
-        return article;
     }
 
-    function getPreparedInstance(articles) {
-        var articlesInArr = [];
-        var i = 0;
-        for (var key in articles) {
-            articlesInArr[i++] = fillRelatedData(articles[key]);
-        }
-        return articlesInArr;
+    function preparedInstance(article) {
+        fillAssociations(article);
+        var date = new Date();
+        article.creationDate = new Date(article.creationDate);
+        return article;
     }
 
     return {
@@ -42,30 +29,30 @@ var Article = (function () {
         getStorageKey: function () {
             return _modelParams_.storage_key;
         },
+        getSequanceName: function () {
+            return _modelParams_.sequence;
+        },
         create: function (article) {
             var storageKey = this.getStorageKey();
             article.author = User.getLoggedIn();
-            db.create(storageKey, article);
-            fillRelatedData(article);
+            var sequance = this.getSequanceName();
+            db.save(storageKey, sequance, article);
             return article;
         },
-        find: function (articleId) {
+        findOne: function (articleId) {
             var storageKey = this.getStorageKey();
-            var article = db.get(storageKey, articleId);
-            article.author = User.find(article.author);
+            var article = db.getOne(storageKey, articleId);
+            preparedInstance(article);
             return article;
         },
         findAll: function() {
-            var allItems = db.get('articles');
-            return getPreparedInstance(allItems);
+            var storageKey = this.getStorageKey();
+            var articles = db.getAll(storageKey);
+            for (var key in articles) {
+                if (!articles.hasOwnProperty(key)) continue;
+                preparedInstance(articles[key]);
+            }
+            return articles;
         }
     }
 })();
-
-// {
-//     id: 33,
-//     title: 'sdf',
-//     content: 'hhh'
-//     author: 432
-// }
-//
