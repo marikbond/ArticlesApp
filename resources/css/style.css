@@ -17,6 +17,10 @@ body {
     padding: 10px;
 }
 
+.row {
+    margin-bottom: 30px;
+}
+
 .clearfix {
     display: block;
     content: '';

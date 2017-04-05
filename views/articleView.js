@@ -23,9 +23,11 @@ var articleView = (function () {
             articleContainer.appendChild(articleRow);
             var col = getColForArticle();
             articleRow.appendChild(col);
-            var articleTemplate = document.getElementById('articleTemplate').innerHTML;
-            var compiledArticleTemplate = _.template(articleTemplate); //TODO
-            col.innerHTML = compiledArticleTemplate(article);
+            // var articleTemplate = document.getElementById('articleTemplate').innerHTML;
+            // var compiledArticleTemplate = _.template(articleTemplate); //TODO
+            // col.innerHTML = compiledArticleTemplate(article);
+            col.innerHTML = templateManager.renderTemplate('article', article);
+
         },
         renderAll: function (articles) {
             for (var key in articles) {
