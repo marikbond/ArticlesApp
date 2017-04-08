@@ -46,7 +46,7 @@
                     <textarea id="article-content" class="form-control" rows="6" placeholder="Content"></textarea>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="articleCtrl.clearModal()">Close</button>
                     <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="articleCtrl.saveArticle()">Save</button>
                 </div>
             </div>
@@ -81,7 +81,7 @@
     </main>
 
     <!-- TEMPLATES -->
-    <script id="articleTemplate" type="text/x-lodash-template">
+    <script id="article-template" type="text/x-lodash-template">
         <article id="<%= id %>" class="article">
             <header>
                 <span>Creation date: </span>

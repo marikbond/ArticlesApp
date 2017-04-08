@@ -1,15 +1,18 @@
 var templateManager = (function () {
-    var compiledTemplate = function () {
-        var articleTemplate = document.getElementById('articleTemplate').innerHTML;
-        return _.template(articleTemplate);
-    }();
+
+    var templates = {};
 
     return {
-        renderTemplate: function (name, article) {
-            return compiledTemplate(article);
+        renderTemplate: function (templateName, data) {
+            var compiledTemplate = templates[templateName];
+            if (!compiledTemplate) {
+                throw new Error("Undefined template name: " + templateName);
+            }
+            return compiledTemplate(data);
         },
-        registerTemplate: function () {
-
+        registerTemplate: function (templateName) {
+            var template = document.getElementById(templateName).innerHTML;
+            templates[templateName] = _.template(template);
         }
     }
 })();

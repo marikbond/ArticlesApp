@@ -23,17 +23,17 @@ var articleView = (function () {
             articleContainer.appendChild(articleRow);
             var col = getColForArticle();
             articleRow.appendChild(col);
-            // var articleTemplate = document.getElementById('articleTemplate').innerHTML;
-            // var compiledArticleTemplate = _.template(articleTemplate); //TODO
-            // col.innerHTML = compiledArticleTemplate(article);
-            col.innerHTML = templateManager.renderTemplate('article', article);
-
+            col.innerHTML = templateManager.renderTemplate('article-template', article);
         },
         renderAll: function (articles) {
             for (var key in articles) {
                 if (!articles.hasOwnProperty(key)) continue;
                 this.render(articles[key]);
             }
+        },
+        clearModal: function () {
+            document.getElementById('article-title').value = '';
+            document.getElementById('article-content').value = '';
         }
     }
 })();

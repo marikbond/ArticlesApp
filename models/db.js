@@ -34,7 +34,7 @@ var db = (function () {
             var valueForSave = value;
             if (isObject(value)) {
                 value.id = generateId(sequence);
-                var items = this.get(key);
+                var items = this.getAll(key);
                 items[value.id] = getObjectForSave(value);
                 valueForSave = items;
             }
