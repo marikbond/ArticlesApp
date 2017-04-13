@@ -88,7 +88,7 @@
                 <time><%= creationDate.format("UTC:dd-MM-yyyy") %></time>
                 <div class="article-controls pull-right">
                     <a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a href="#"><span class="glyphicon glyphicon-remove"></span></a>
+                    <a href="#"><span class="glyphicon glyphicon-remove" onclick="articleView.delete()"></span></a>
                 </div>
             </header>
             <main>
@@ -110,6 +110,7 @@
     <script src="../resources/js/jquery.js"></script>
     <script src="../resources/libs/dateFormat.js"></script>
     <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../closer/closerTest.js"></script> <!-- TODO delete -->
     <script type="text/javascript" src="../resources/js/utils.js"></script>
     <script type="text/javascript" src="../models/db.js"></script>
     <!-- end common libs -->
