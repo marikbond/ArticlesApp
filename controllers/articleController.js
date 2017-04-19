@@ -8,7 +8,8 @@ var articleCtrl = (function () {
             var article = Article.create({
                 title: title,
                 content: content,
-                creationDate: new Date()
+                creationDate: new Date(),
+                author: User.create()
             });
             articleView.render(article);
         },
