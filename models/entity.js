@@ -36,7 +36,12 @@ var Entity = (function () {
 
     function prepareDbInstance(data, definition) {
         var instance = {
-            id: data.id
+            id: data.id,
+            author: data.author,
+            title: data.title,
+            content: data.content,
+            creationDate: data.creationDate
+
         };
         fillPrimitiveValues(instance, data, definition);
         fillEntitiesById(instance, data, definition);
@@ -62,7 +67,7 @@ var Entity = (function () {
             if (!definition.hasOwnProperty(field)) continue;
             var fieldType = getFieldType(definition[field]);
             if (!fieldType.primitiveType) {
-                var user = Entity.prototype.findOne('users', data[field]);
+                var user = Entity.prototype.findOne('users', data[field]);//TODO не понял как сделать с association
                 definition[field] = user;
             }
         }

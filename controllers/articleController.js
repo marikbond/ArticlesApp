@@ -9,7 +9,7 @@ var articleCtrl = (function () {
                 title: title,
                 content: content,
                 creationDate: new Date(),
-                author: User.create()
+                author: User.getLoggedIn()
             });
             articleView.render(article);
         },

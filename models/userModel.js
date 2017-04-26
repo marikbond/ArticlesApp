@@ -34,24 +34,3 @@ var User = (function () {
     extend(User, Entity);
     return new User();
 })();
-
-
-
-// var User = (function () {
-//     return {
-//             create: function () {
-//                 //TODO реальзовать функцию
-//             },
-//             findOne: function (userId) {
-//                 //TODO реализовать функцию поиска нужного юзера
-//                 //данное значение выступает в качестве mock
-//                 return loggedInUserMock;
-//             },
-//             getLoggedIn: function () {
-//                 //TODO реализовать получение зарегистрированного пользователя
-//                 //данное значение выступает в качестве mock
-//                 return loggedInUserMock;
-//             }
-//         }
-//     }
-// )();
