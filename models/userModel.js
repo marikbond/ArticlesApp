@@ -10,10 +10,11 @@ var User = (function () {
             firstName: DataTypes.STRING,
             lastName: DataTypes.STRING
         };
-        this.classMethods = {
-            getLoggedIn: function () {
-                return loggedInUserMock;
-            }
+        this.getLoggedIn = function () {
+            return userMock;
+        };
+        this.findOne = function () {
+            return userMock;
         };
         this.instanceMethods = {
             getFullName: function () {
@@ -22,7 +23,7 @@ var User = (function () {
         };
     }
 
-    var loggedInUserMock = {
+    var userMock = {
         id: '436',
         firstName: 'Alexey',
         lastName: 'Popov',

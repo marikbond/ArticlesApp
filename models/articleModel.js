@@ -13,7 +13,7 @@ var Article = (function () {
             author: {
                 type: DataTypes.ENTITY,
                 association: User,
-                defaultValue: User.classMethods.getLoggedIn()
+                defaultValue: User.getLoggedIn()
             }
         };
         this.classMethods = {};

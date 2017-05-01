@@ -14,7 +14,6 @@ var Entity = (function () {
         fillPrimitiveValues(instance, data, this.definition);
         fillEntitiesValues(instance, data, this.definition);
         fillDefaultValuesIfNeeded(instance, this.definition);
-        fillClassMethods();
         fillInstanceMethods();
         db.save(this.storageKey, this.sequence, instance);
         return instance;
@@ -22,36 +21,31 @@ var Entity = (function () {
 
     Entity.prototype.findOne = function (storageKey, id) {
         var data = db.getOne(storageKey, id);
-        return prepareDbInstance(data, this.definition);
+        return prepareInstanceFrom(data, this.definition);
     };
 
     Entity.prototype.findAll = function () {
         var items = db.getAll(this.storageKey);
         for (var key in items) {
             if (!items.hasOwnProperty(key)) continue;
-            items[key] = prepareDbInstance(items[key], this.definition);
+            items[key] = prepareInstanceFrom(items[key], this.definition);
         }
         return items;
     };
 
-    function prepareDbInstance(data, definition) {
+    function prepareInstanceFrom(data, definition) {
         var instance = {
-            id: data.id,
-            author: data.author,
-            title: data.title,
-            content: data.content,
-            creationDate: data.creationDate
-
+            id: data.id
         };
         fillPrimitiveValues(instance, data, definition);
         fillEntitiesById(instance, data, definition);
-        fillClassMethods();
         fillInstanceMethods();
         return instance;
     }
 
     function fillPrimitiveValues(instance, data, definition) {
         for (var field in definition) {
+            if (!definition.hasOwnProperty(field)) continue;
             var fieldType = getFieldType(definition[field]);
             if (fieldType.primitiveType) {
                 instance[field] = resolveValueByPrimitiveType(data[field], fieldType);
@@ -67,15 +61,13 @@ var Entity = (function () {
             if (!definition.hasOwnProperty(field)) continue;
             var fieldType = getFieldType(definition[field]);
             if (!fieldType.primitiveType) {
-                var user = Entity.prototype.findOne('users', data[field]);//TODO не понял как сделать с association
-                definition[field] = user;
+                var AssociatedEntity = definition[field].association;
+                instance[field] = AssociatedEntity.findOne(data[field]);
             }
         }
     }
 
     function fillDefaultValuesIfNeeded(instance, definition) {
-    }
-    function fillClassMethods() {
     }
     function fillInstanceMethods() {
     }
