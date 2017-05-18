@@ -54,6 +54,12 @@ var Entity = (function () {
     }
 
     function fillEntitiesValues(instance, data, definition) {
+        for (var field in definition) {
+            var fieldType = getFieldType(definition[field]);
+            if(!fieldType.primitiveType) {
+                instance[field] = data.author;
+            }
+        }
     }
 
     function fillEntitiesById(instance, data, definition) {

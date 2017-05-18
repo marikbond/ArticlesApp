@@ -1,7 +1,6 @@
 registerTemplates();
 
-var articles = Article.findAll();
-articleView.renderAll(articles);
+articleView.addToScreen();
 
 function registerTemplates() {
     [

@@ -30,11 +30,9 @@ var articleView = (function () {
         localStorage.setItem('articles', JSON.stringify(articles));
     }
 
-    function deleteFromScreen(id) {
-        var item = document.getElementById(id);
-        var parentElem = item.parentNode;
-        var grandParent = parentElem.parentNode;
-        grandParent.removeChild(parentElem);
+    function deleteFromScreen() {
+        var articleContainer = getElementById('article-container');
+        articleContainer.innerHTML = '';
     }
 
     return {
@@ -52,6 +50,10 @@ var articleView = (function () {
                 this.render(articles[key]);
             }
         },
+        addToScreen: function() {
+            var articles = Article.findAll();
+            articleView.renderAll(articles);
+        },
         clearModal: function () {
             document.getElementById('article-title').value = '';
             document.getElementById('article-content').value = '';
@@ -59,7 +61,8 @@ var articleView = (function () {
         delete: function () {
             var id = identifyId();
             deleteFromLocalStorage(id);
-            deleteFromScreen(id);
+            deleteFromScreen();
+            articleView.addToScreen();
         }
     }
 })();
